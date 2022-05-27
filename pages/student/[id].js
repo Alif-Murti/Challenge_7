@@ -24,30 +24,39 @@ const Student = () => {
     <div>
       {students && (
         <>
-          <div>
-            <Zoom>
-              {students.attributes.photo.data === null && (
-                <img src="/patrick.jpg" alt="student" width="100" />
-              )}
-              {students.attributes.photo.data !== null && (
-                <img
-                  src={students.attributes.photo.data.attributes.url}
-                  alt="student"
-                  width="100"
-                />
-              )}
-            </Zoom>
-            <div>
-              <div>First Name :</div>
-              <div> {students.attributes.firstname}</div>
+          <div className="mx-auto flex px-5 py-24 items-center justify-center flex-col">
+            <div className="lg:w-2/6 md:w-3/6 w-5/6 mb-10 object-cover object-center rounded">
+              <Zoom>
+                {students.attributes.photo.data === null && (
+                  <img src="/patrick.jpg" alt="student" />
+                )}
+                {students.attributes.photo.data !== null && (
+                  <img
+                    src={students.attributes.photo.data.attributes.url}
+                    alt="student"
+                  />
+                )}
+              </Zoom>
             </div>
-            <div>
-              <div>Last Name :</div>
-              <div> {students.attributes.lastname}</div>
-            </div>
-            <div>
-              <div>Location :</div>
-              <div> {students.attributes.location}</div>
+            <div className="text-center lg:w-2/3 w-full">
+              <div>
+                <div className="text-xl">Nama Depan :</div>
+                <div className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+                  {students.attributes.firstname}
+                </div>
+              </div>
+              <div>
+                <div className="text-xl">Nama Belakang :</div>
+                <div className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+                  {students.attributes.lastname}
+                </div>
+              </div>
+              <div>
+                <div className="leading-relaxed">Lokasi :</div>
+                <div className="title-font sm:text-4xl text-3xl mb-4 font-medium text-gray-900">
+                  {students.attributes.location}
+                </div>
+              </div>
             </div>
           </div>
         </>
